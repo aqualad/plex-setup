@@ -1,0 +1,34 @@
+services:
+  plex:
+    volumes:
+      - ${HOME}/docker/plex/config:/config
+      - "/mnt/plexpool/Media/TV Shows:/tv"
+      - /mnt/plexpool/Media/Movies:/movies
+  sonarr:
+    volumes:
+      - ${HOME}/docker/sonarr/config:/config
+      - "/mnt/plexpool/Media/TV Shows:/tv"
+      - /mnt/plexpool/Downloads:/downloads
+  radarr:
+    volumes:
+      - ${HOME}/docker/radarr/config:/config
+      - /mnt/plexpool/Media/Movies:/movies
+      - /mnt/plexpool/Downloads:/downloads
+  qbittorrent:
+    volumes:
+      - ${HOME}/docker/qbittorrent/config:/config
+      - ${HOME}/docker/qbittorrent/config/auth.conf:/auth.conf
+      - /mnt/plexpool/Downloads:/downloads
+  prowlarr:
+    volumes:
+      - ${HOME}/docker/prowlarr/config:/config
+  cleanuparr:
+    volumes:
+      - ${HOME}/docker/cleanuparr/config:/config
+      # Mount your downloads directory if needed
+      - /mnt/plexpool/Downloads:/downloads
+  nzbget:
+    volumes:
+      - ${HOME}/docker/nzbget/config:/config
+      - /mnt/plexpool/Downloads:/downloads
+      - /mnt/plexpool/Intermediate:/intermediate
