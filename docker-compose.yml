@@ -117,7 +117,7 @@ services:
       - /var/lib/flaresolver:/config
     restart: unless-stopped
   nzbget:
-    image: lscr.io/linuxserver/nzbget
+    image: lscr.io/linuxserver/nzbget:latest
     container_name: nzbget
     environment:
       - PUID=1000
